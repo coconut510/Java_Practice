@@ -13,6 +13,7 @@ public class CastingSample {
 	}
 	public void calculatorScore()
 	{
+System.out.println("±ê¤¾Çãºê Ã¼Å©");
 		double kor;
 		double eng;
 		double math;
