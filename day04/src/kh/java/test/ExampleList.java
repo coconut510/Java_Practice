@@ -442,73 +442,73 @@ public class ExampleList {
 	public void PsyTest()
 	{
 		Scanner sc = new Scanner(System.in);
-		final String animal1 = "사자";
-		final String animal2 = "원숭이";
-		final String animal3 = "소";
-		final String animal4 = "말";
-		final String animal5 = "양";
+		final String LION = "사자";
+		final String MONKEY = "원숭이";
+		final String COW = "소";
+		final String HORSE = "말";
+		final String SHEEP = "양";
 		
 		String animal ="";
 		char answer;
 		System.out.println("===== 사막 동물 심리테스트 =====");
 		System.out.println("당신은 지금 사막에 홀로 있습니다\n"
 				+ "당신은 사자, 원숭이, 소, 말, 양 이렇게\n 다섯마리의 동물과 사막을 건너야 합니다.\n"
-				+ "그런데 너무 지치고 힘들어서 \n 모든 동물을 다 데리고 가지 못하게 되었어요"
-				+ "5마리의 동물 중 1마리는 버려야 하는데요,\n 여러분은 어떤 동물을 먼저 사막에 버리시겠습니까?\n "
-				+ "사자 (a), 원숭이(b), 소(c), 말(d), 양(e)"
+				+ "그런데 너무 지치고 힘들어서 \n 모든 동물을 다 데리고 가지 못하게 되었어요\n"
+				+ "5마리의 동물 중 1마리씩 버려야 하는데요,\n 여러분은 어떤 동물을 먼저 사막에 버리시겠습니까?\n "
+				+ "사자 (a), 원숭이(b), 소(c), 말(d), 양(e)\n"
 				);
 		System.out.print("가장 먼저 버릴 동물은?");
 		answer = sc.next().charAt(0);
 		
-		if(answer=='a') animal = animal1;
-		else if(answer=='b') animal = animal2;
-		else if(answer=='c') animal = animal3;
-		else if(answer=='d') animal = animal4;
-		else if(answer=='e') animal = animal5;
+		if(answer=='a') animal = LION;
+		else if(answer=='b') animal = MONKEY;
+		else if(answer=='c') animal = COW;
+		else if(answer=='d') animal = HORSE;
+		else if(answer=='e') animal = SHEEP;
 		
 		System.out.printf("가장먼저 %s를 버렸습니다.",animal );
 		
 		System.out.print("그 다음 버릴 동물은?");
 		answer = sc.next().charAt(0);
 		
-		if(answer=='a') animal = animal1;
-		else if(answer=='b') animal = animal2;
-		else if(answer=='c') animal = animal3;
-		else if(answer=='d') animal = animal4;
-		else if(answer=='e') animal = animal5;
+		if(answer=='a') animal = LION;
+		else if(answer=='b') animal = MONKEY;
+		else if(answer=='c') animal = COW;
+		else if(answer=='d') animal = HORSE;
+		else if(answer=='e') animal = SHEEP;
 		
 		System.out.printf("두번째로 %s를 버렸습니다.",animal );
 		
 		System.out.print("그 다음 버릴 동물은?");
 		answer = sc.next().charAt(0);
 		
-		if(answer=='a') animal = animal1;
-		else if(answer=='b') animal = animal2;
-		else if(answer=='c') animal = animal3;
-		else if(answer=='d') animal = animal4;
-		else if(answer=='e') animal = animal5;
+		if(answer=='a') animal = LION;
+		else if(answer=='b') animal = MONKEY;
+		else if(answer=='c') animal = COW;
+		else if(answer=='d') animal = HORSE;
+		else if(answer=='e') animal = SHEEP;
 		
 		System.out.printf("세번째로 %s를 버렸습니다.",animal );
 		
 		System.out.print("그 다음 버릴 동물은?");
 		answer = sc.next().charAt(0);
 		
-		if(answer=='a') animal = animal1;
-		else if(answer=='b') animal = animal2;
-		else if(answer=='c') animal = animal3;
-		else if(answer=='d') animal = animal4;
-		else if(answer=='e') animal = animal5;
+		if(answer=='a') animal = LION;
+		else if(answer=='b') animal = MONKEY;
+		else if(answer=='c') animal = COW;
+		else if(answer=='d') animal = HORSE;
+		else if(answer=='e') animal = SHEEP;
 		
 		System.out.printf("네번째로 %s를 버렸습니다.",animal );
 		
 		System.out.print("마지막으로 버릴 동물은?");
 		answer = sc.next().charAt(0);
 		
-		if(answer=='a') animal = animal1;
-		else if(answer=='b') animal = animal2;
-		else if(answer=='c') animal = animal3;
-		else if(answer=='d') animal = animal4;
-		else if(answer=='e') animal = animal5;
+		if(answer=='a') animal = LION;
+		else if(answer=='b') animal = MONKEY;
+		else if(answer=='c') animal = COW;
+		else if(answer=='d') animal = HORSE;
+		else if(answer=='e') animal = SHEEP;
 		
 		System.out.printf("마지막으로 %s를 버렸습니다.",animal );
 		
@@ -517,17 +517,9 @@ public class ExampleList {
 		
 		System.out.println("이 질문은 여러분이 힘든 상황에 닥쳤을 때,\n" + 
 				"가장 먼저 포기하게 되는 것이 무엇인지를 알아보는 심리테스트 입니다.\n"
-				+ "각각의 동물이 의미하는 바는"
+				+ "각각의 동물이 의미하는 바는\n"
 				+ "1.사자=자존심 / 2.말=가족 / 3.소=직업 / 4.양=사랑 / 5.원숭이=친구\n"
 				+ "다음과 같습니다.");
-				
-		
-		
-		
-		
-		
 	}
-
-	
 	
 }

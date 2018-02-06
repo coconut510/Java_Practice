@@ -21,7 +21,7 @@ public class TestMain {
 //		ep.example13();
 //		ep.example14();		// 심리테스트.
 //		ep.example16();		// 4-4 추가문제.
-	ep.PsyTest();
+		ep.PsyTest();
 	}
 
 }
