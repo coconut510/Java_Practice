@@ -383,4 +383,75 @@ public class ExamClassList {
 		System.out.printf("%d ~ %d 사이에있는\n3, 5의 배수의 갯수는 %d, 합은 %d 평균은 %.1f",firNum,secNum,count, sum, ((double)sum/count));
 	}
 	
+	public void example19()
+	{
+		int i =1;
+		while(i<30)
+		{
+			if(i%4==0) System.out.println(i);
+			i+=1;
+		}
+		
+	}
+	
+	public void example20()
+	{
+		Scanner sc =new Scanner(System.in);
+		int i =0;
+		int num =1;
+	    do
+		{
+			System.out.print("정수 하나를 입력하세요.");
+			num = sc. nextInt();
+			if(num>0)System.out.printf("%d는 양수입니다.\n", num );
+			else if(num<0) System.out.printf("%d는 음수입니다.\n", num );
+			else System.out.println("프로그램을 종료합니다.");
+		}while(num!=0);
+	}
+	
+	public void example21()
+	{
+		int sum = 0;
+		for(int i = 1; i<=10;i++)
+		{
+			for(int j = 1; j<=i;j++)
+			{
+				sum+=j;				
+			}			
+		}
+		System.out.printf("결과값 %d \n" ,sum );
+	}
+	
+	public void example22()
+	{
+		int n =0;
+		int goal = 100;
+		int result = 0;
+		boolean chk = true;
+		while(result<100)//(chk)
+		{
+			n+=1;	
+			if(n%2==0)result -=n;	
+			else result +=n;	
+			//if(result==goal) chk = false;		
+		}
+		n = n%2==0?n*-1:n;
+		System.out.printf("%d 일때 결과값은 %d이됩니다. ",n,goal);
+	}
+	
+	public void example23()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇과목을 입력받을지 입력하세요.");
+		int classNum = sc.nextInt();
+		int totalNum = 0; 
+		for( int i = 1; i<=classNum;i++)
+		{
+			System.out.printf("%d번째 과목 점수를 입력하세요 => ", i);
+			totalNum += sc.nextInt();
+		}
+		double avr = totalNum /classNum;
+		if(avr>=80) System.out.println("pass");
+		else System.out.println("fail");
+	}
 }
