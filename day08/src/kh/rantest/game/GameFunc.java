@@ -64,7 +64,8 @@ public class GameFunc {
 			{
 				if(myMoney-originMoney>0)System.out.printf("%d원을 따고 카지노를 떠납니다.",myMoney-originMoney);
 				else System.out.printf("%d원을 잃고 카지노를 떠납니다.",originMoney-myMoney);
-				break;
+				delay(2000);
+				return;
 			}
 			if(battingPrice>myMoney)
 			{
@@ -117,6 +118,7 @@ public class GameFunc {
 				if(myMoney<=0)
 				{
 					System.out.println("올인당했습니다. ㄷㄷ");
+					delay(2000);
 					return;
 				}
 			}
@@ -545,92 +547,304 @@ public class GameFunc {
 		boolean chk = true;
 		int turnChk = 0;
 		
+		int menuSelect = 0;
+		
+		int win = 0;
+		int lose = 0;
+		
 		
 		int min = 1;
 		int max = 100;
 		String turnName = "";
-		System.out.println("=== Up & Down ===");
+		System.out.println("           ★★★★★★★★★★★★★★★★");
+		System.out.println("           ★                Up & Down     ★");
+		System.out.println("           ★★★★★★★★★★★★★★★★");
 		System.out.println("이 게임은 1~100 사이의 수 하나를 맞추는 게임입니다.");
 		System.out.println("0을 입력하면 게임을 종료합니다.");
 		Random r = new Random();
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("<<Game Start>>");
+		
 		
 		
 		int tempNum =0;
 		while(true)
 		{
-			if(chk)
-			{
-				goalNum = r.nextInt(100)+1;//1~100까지.
-				chk = false;
-				turnChk = 0;
-			}
 			
-			// 사용자 턴.
-			if(turnChk==0) 
+			if(menuSelect==0) 
 			{
-				System.out.println("<<User Turn>>");
-				System.out.printf("숫자를 입력해주세요.(user %d~%d) ", min, max);
-				playerNum = sc.nextInt();
-				if(playerNum==0)
+				System.out.println("1>Game Start");
+				System.out.println("2>Game Score");
+				System.out.println("3>End Game");
+				System.out.print("메뉴 선택 ▶ ");
+				menuSelect = sc.nextInt();
+			}
+			if(menuSelect==1) 
+			{
+				if(chk)
 				{
-					System.out.println("게임을 종료합니다.");
-					break;
+					System.out.println("<<Game Start>>");
+					goalNum = r.nextInt(100)+1;//1~100까지.
+					chk = false;
+					turnChk = 0;
 				}
-				if(playerNum<0&&playerNum>100)
+				
+				// 사용자 턴.
+				if(turnChk==0) 
 				{
-					System.out.println("1~100까지 숫자를 입력해주세요!");
+					System.out.println("<<User Turn>>");
+					System.out.printf("숫자를 입력해주세요.(user %d~%d) ", min, max);
+					playerNum = sc.nextInt();
+					
+					if(playerNum==0)
+					{
+						System.out.println("게임을 종료합니다.");
+						break;
+					}
+					if(playerNum<0&&playerNum>100)
+					{
+						System.out.println("1~100까지 숫자를 입력해주세요!");
+						continue;
+					}
+					tempNum = playerNum;	
+					turnChk =1;				
+				}
+				else// 컴퓨터 턴일때.
+				{
+					System.out.println("<<Computer Turn>>");
+					int standNum = max - min;
+					//최대값 - 최소값을 난수 범위로 지정하고 최소값을 새로 더해주면 최소~최대값 범위를 구할수 있음.
+					comNum = r.nextInt(standNum)+min;// 난수 생성.
+					System.out.printf("숫자를 입력해주세요.(com %d~%d ) %d  \n", min, max, comNum);
+				
+					tempNum = comNum;
+					turnChk =0;				
+				}
+				
+				if(goalNum > tempNum) 
+				{
+					System.out.println("\nUP!!\n");
+					if(tempNum>min)
+					{
+						min = tempNum;
+					}
+					answerCount+=1;
 					continue;
 				}
-				tempNum = playerNum;	
-				turnChk =1;				
-			}
-			else// 컴퓨터 턴일때.
-			{
-				System.out.println("<<Computer Turn>>");
-				int standNum = max - min;
-				//최대값 - 최소값을 난수 범위로 지정하고 최소값을 새로 더해주면 최소~최대값 범위를 구할수 있음.
-				comNum = r.nextInt(standNum)+min;// 난수 생성.
-				System.out.printf("숫자를 입력해주세요.(com %d~%d ) %d  \n", min, max, comNum);
-			
-				tempNum = comNum;
-				turnChk =0;				
-			}
-			
-			if(goalNum > tempNum) 
-			{
-				System.out.println("\nUP!!\n");
-				if(tempNum>min)
+				else if(goalNum < tempNum)
 				{
-					min = tempNum;
+					if(tempNum<max)
+					{
+						max = tempNum;
+					}
+					delay(300);
+					System.out.println("\nDOWN!!\n");
+					answerCount+=1;
+					continue;
 				}
-				answerCount+=1;
-				continue;
-			}
-			else if(goalNum < tempNum)
-			{
-				if(tempNum<max)
+				else 
 				{
-					max = tempNum;
-				}
-				delay(300);
-				System.out.println("\nDOWN!!\n");
-				answerCount+=1;
-				continue;
+					turnName = (turnChk==1)?"유저":"컴퓨터";
+					if(turnChk==1) win+=1;
+					else lose +=1;
+					System.out.printf("%s가 정답을 %d번만에 맞췄습니다.\n\n\n\n" ,turnName,answerCount);
+					// 최대최소값 초기화.
+					min = 1;
+					max = 100;
+					System.out.println("새 게임 시작!");
+					chk = true; // 새로 점수 해놓으라고.
+					turnChk = 2;// 턴 페이즈 초기화.
+					menuSelect = 0;
+				}		
 			}
-			else 
+			else if(menuSelect==2)
 			{
-				turnName = (turnChk==1)?"유저":"컴퓨터";
-				System.out.printf("%s가 정답을 %d번만에 맞췄습니다.\n\n\n\n" ,turnName,answerCount);
-				// 최대최소 초기화.
-				min = 1;
-				max = 100;
-				System.out.println("새 게임 시작!");
-				chk = true; // 새로 점수 해놓으라고.
-				turnChk = 2;// 턴 페이즈 초기화.
-			}					
+				System.out.println("◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆");
+				System.out.println("◆                             Game Score                        ◆");
+				System.out.println("◆〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓◆");
+				System.out.println("◆             User 승                     User 패  ◆");
+				System.out.printf("◆                 %d               %d   ◆\n",win, lose );
+				System.out.println("◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆");	
+				menuSelect = 0;
+			}
+			else
+			{
+				System.out.println("◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆");
+				System.out.println("◆                             Game End                           ◆");
+				System.out.println("◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆");
+				break;
+			}
 		}
+	}
+	
+	
+	public void baskinRabins()
+	{
+		final int goalCount =31;
+	    int playerCount = 0;
+	    int comCount = 0;
+	    int total = 1;
+				
+		Random r = new Random();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("게임룰 설명\n"
+				+ "마지막 31을 먼저 말하는 사람이 지는 게임!\n"
+				+ "한번에 1~3개까지 말할 수 있다 ! \n");
+		
+		delay(500);
+		System.out.println("<<Game Start>>");
+		
+		while(true)			
+		{
+			System.out.print("(Player Turn) : ");
+			playerCount = sc.nextInt();
+			
+			if(playerCount>3)
+			{
+				System.out.println("1~3까지 숫자를 입력해야합니다.");
+				continue;
+			}
+			for(int i = total; i<total+playerCount; i++)
+			{
+				System.out.println("user =>" + i);
+				if(i==31)
+				{
+					System.out.println("플레이어가 졌습니다.ㄷㄷ");
+				}
+			}
+			total+=playerCount;
+			
+			comCount = r.nextInt(3)+1;
+			System.out.printf("(Computer Turn) : %d\n", comCount);
+		
+			
+			for(int i = total;i< total+ comCount;i++)
+			{
+				System.out.println("com =>" +i);
+				if(i==31)
+				{
+					System.out.println("플레이어가 이겼습니다.");
+				}
+			}
+			total += comCount;
+			
+			if(total>=31) {		    
+				System.out.print("다시 하겠습니까?(y/n)");
+
+			    if(sc.next().charAt(0)=='y')
+		    	{
+			    	System.out.println("새로운 개임 시작!");
+			    	total = 1;
+			    	continue;
+		    	}
+			    else
+			    {
+			    	System.out.println("게임 종료");
+			    	break;
+			    }
+			}
+			
+		}
+		
+		
+	}
+
+	public void baskinRabinsAI()
+	{
+		final int goalCount =31;
+	    int playerCount = 0;
+	    int comCount = 0;
+	    int total = 1;
+	    int cN1  = 0;// 4*cN1 + 2  // 이 숫자대로 하면 이김.
+				
+		Random r = new Random();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("게임룰 설명\n"
+				+ "마지막 31을 먼저 말하는 사람이 지는 게임!\n"
+				+ "한번에 1~3개까지 말할 수 있다 ! \n");
+		
+		delay(500);
+		System.out.println("<<Game Start>>");
+		
+		while(true)			
+		{
+
+				System.out.print("\n(Player Turn) : ");
+				playerCount = sc.nextInt();
+				
+				if(playerCount>3)
+				{
+					System.out.println("1~3까지 숫자를 입력해야합니다.");
+					continue;
+				}
+				for(int i = total; i<total+playerCount; i++)
+				{
+					
+					if(i==31)
+					{
+						System.out.println("\n\n플레이어가 졌습니다.ㄷㄷ\n\n");
+						break;
+					}
+					System.out.println("user =>" + i);
+				}
+				total+=playerCount;
+				
+				
+				
+				for(int i = 0; i<8;i++)
+				{
+					if(4*i+2>=total)
+					{						
+						comCount = ((4*i+2) - total ) + 1;
+						if(comCount>3) comCount = r.nextInt(2)+1;
+						break;
+					}
+				}
+				// 플레이어 도발용.
+				if(total==2 || total==4) System.out.println("이건 컴퓨터의 승리군여 ");				
+				
+				if(total<31) {
+					
+					
+					// 컴퓨터 입력을 출력.
+					System.out.printf("\n(Computer Turn) : %d\n\n", comCount);
+					
+					
+					for(int i = total;i< total+ comCount;i++)
+					{				
+						if(i==31)
+						{
+							System.out.println("플레이어가 이겼습니다.");
+							break;
+						}
+						// 플레이어 도발용2.
+						if(i==26) System.out.println("제가 이겼습니다.");
+						if(i==30) System.out.println("ㅈㅈ~");
+						
+						System.out.println("com =>" +i);
+					}
+					total += comCount;
+				}
+				
+			
+				
+			if(total>31) 
+			{		    
+				System.out.print("다시 하겠습니까?(y/n)");
+
+			    if(sc.next().charAt(0)=='y')
+		    	{
+			    	System.out.println("새로운 개임 시작!");
+			    	total =1;// 값 초기화.
+			    	continue;
+		    	}
+			    else
+			    {
+			    	System.out.println("게임 종료");
+			    	break;
+			    }
+			}
+			
+	}
 	}
 }
