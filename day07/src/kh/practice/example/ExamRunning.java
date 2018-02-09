@@ -38,7 +38,7 @@ public class ExamRunning {
 //		el.example31();// 난수 예제 1
 //		el.example32();// 별찍기 문제 19
 //		el.example33();// 난수 문제 2
-		el.example34();
+//		el.example34();
 	}
 
 }

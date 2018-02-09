@@ -607,31 +607,6 @@ public class ExamList {
 			}
 		}
 	}
-	 public void example34() {
-	        for(int i=5;i>=1;i--) {
-	            for(int j=1;j<=i;j++) {
-	                System.out.print("*");
-	            }
-	            for(int k=1;k<=((5-i)*2)+1;k++) {
-	                System.out.print(" ");
-	            }
-	            for(int l=1;l<=i;l++) {
-	                System.out.print("*");
-	            }
-	            System.out.println();
-	        }
-//	        for(int m=2;m<=5;m++) {
-//	            for(int n=1;n<=m;n++) {
-//	                System.out.print("*");
-//	            }
-//	            for(int o=1;o<=((5-m)*2)+1;o++) {
-//	                System.out.print(" ");
-//	            }
-//	            for(int p=1;p<=m;p++) {
-//	                System.out.print("*");
-//	            }
-//	            System.out.println();
-//	        }
-	    }
+	 
 
 }
