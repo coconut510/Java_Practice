@@ -489,12 +489,6 @@ public class ExampleFunc {
 			}
 			System.out.println();
 		}
-//		int[][] arr = { {1, 2, 3, 4 } , 
-//						{5, 6, 7, 8 } ,
-//						{9, 10,11,12} ,
-//						{13,14,15,16} ,
-//						{17,18,19,20}};
-//		System.out.println(arr[2][3] + arr[4][3]);
 	}
 	
 	public void arrayTwoDemensionTwo()
@@ -545,7 +539,7 @@ public class ExampleFunc {
 		{
 			for(int j = 0; j<arr[i].length;j++)
 			{
-			    arr[i][j] = 5*k*(j+1)  -i;
+			    arr[i][j] = 5*k*(j+1) - i;
 			}
 		}
 		for(int i = 0; i<arr.length;i++)
@@ -665,7 +659,7 @@ public class ExampleFunc {
 			{
 				for(int j = 0; j<arr[i].length;j++)
 				{
-					arr[i][j] = (char)('a' + r.nextInt(25));
+					arr[i][j] = (char)('a' + r.nextInt(26));
 					System.out.printf("%2c",arr[i][j]);
 				}
 				System.out.println();

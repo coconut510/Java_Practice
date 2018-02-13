@@ -15,8 +15,8 @@ public class ExampleRunning
 //		ef.deepCopyArray();
 //		ef.lottoReal();
 //		ef.arrayTwoDemension();
-		ef.arrayTwoDemensionTwo();
-//		ef.arrayTwoDemensionThree();
+//		ef.arrayTwoDemensionTwo();
+		ef.arrayTwoDemensionThree();
 		
 	}
 }
