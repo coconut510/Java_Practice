@@ -2,7 +2,8 @@ package kh.practice.exam;
 
 public class ExamRunning {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		ExamFunc ef = new ExamFunc();
 //		ef.flexibleArrayExam();
 //		ef.apratInfoManage();
