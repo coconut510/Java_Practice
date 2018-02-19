@@ -12,5 +12,6 @@ public class MaxMinSelect {
 			if(max<array[i]) max = array[i];
 		}
 		System.out.printf("해당 배열에서 최대값은%d, 최소값은 %d", max, min);
+
 	}
 }
