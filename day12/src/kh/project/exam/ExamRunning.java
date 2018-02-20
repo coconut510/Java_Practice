@@ -12,5 +12,6 @@ public class ExamRunning extends TestProtected
 //		new Monitor().start();
 //		LolChampTraining lt = new LolChampTraining();
 		new StdMgr().start();
+		
 	}
 }
