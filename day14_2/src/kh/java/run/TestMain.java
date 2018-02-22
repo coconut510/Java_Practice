@@ -14,5 +14,4 @@ public class TestMain {
 		m.deleteStudent("°í±æµ¿");
 		m.viewAllStudent();
 	}
-
 }

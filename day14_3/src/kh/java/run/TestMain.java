@@ -18,5 +18,8 @@ public class TestMain {
 		mgr.insertData(new Gold("박부장", "골드", 3000));
 		mgr.insertData(new Vip("최사장", "Vip", 3000));
 		mgr.printData();
+		 System.out.printf("\t /)/)\n");
+		 System.out.printf("\t( ..)\n");
+		 System.out.printf("\t( >$>\n");
 	}
 }
