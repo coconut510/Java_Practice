@@ -54,7 +54,7 @@ public class PntMgr implements  PntMgrInterface {
 	@Override
 	public int searchData() {
 		sc.nextLine();
-		System.out.print("검색될 회원 이름 입력 : ");
+		System.out.print("검색될 회원 이름 입력 : ") ;
 		String searchName = sc.nextLine();
 		int infoIndex = -1;
 		for(int i = 0; i<index;i++)
