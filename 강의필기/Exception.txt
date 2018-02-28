@@ -32,6 +32,53 @@ catch  부분의 코드를 실행하게 됨
 
 
 
+@ Exception
+-> 예외
+-> 프로그래머가 만든 프로그램에서 예상한 정상적인 처리에서 벗어나는 경우를 
+예외 라고 볼수있음
+-> 이때 예외에 대한 처리를 해주어야 하는데 그것을 예외처리 라고 부르
+-> 자바에서 예외처리를 하기 위한  문법을 try ~ catch 구문이라고 부름
+
+
+@ try ~ catch
+-> 예외 처리를 하기 위한 문법
+-> try 는 반드시 예외 처리를 해야 하는 구문
+-> catch 는 예외가 발생하면 실행되는 구문
+
+
+@ finally
+->  try 와 catch 구문에 관계없이 무조건 실행되는 구문
+-> try 와 catch 이후에만 사용할 수 있고, try 코드가 정상처리 되어도
+finally 코드를 실행하고, catch(예외) 코드를 실행하게 되어도 finally 코드를 실행 함.
+
+
+# tyr ~with ~ resource
+-> 자바 7에서 추가된 기능으로, finally에서 작성되었던 리소스 반납 (close()) 처리를
+자동으로 처리해주는 try~ catch 구문
+
+@ 예외의 종류
+
+Throwable : 예외의 가장 큰 조상
+Error :  프로그램 문제가 아닌 시스템 에러 ( 프로그램 개발자가 해결할 수 없음)
+Exception : 프로그램 코드 문제로 발생하는 에러 (프로그램 개발자가 처리 해야 함)
+RuntimeException : 어플리케이션이 동작하는 도중에 발생하는 에러
+
+
+@ Checked Exception과 Unchecked Exception
+-> 예외처리는 크게 2가지로 설정할수있음.
+	- 강제화 할것인가? 아니면 선택화 할것인가?
+
+-> Checked Exception은 예외처리를 강제화 시키는것
+	- 즉. Checked Exception 이 설정된 메소드는 사용시 강제로 try ~ catch 구문을
+	처리를 해야 함
+
+-> Unchkecked Exception 은 예외처리를 선택화 시키는 것
+	- 즉, Unchecked Exception 이 설정된 메소드는 사용시 try~ catch 구문
+	처리를 해도 되고 안해도 됨
+
+
+
+
 @ finally
 -> 항상 try 와 catch  이후에만 올수있음
 -> finally 는 예외 여부와 관계없이 실행되는 로직
@@ -186,3 +233,33 @@ Runtime Exception : 어플리케이션이 작동하면서 발생하는 에러
 ->cast 연산자 사용시 타입 오류일때 발생.
 
 
+
+@ Exception 확인하기
+-> Exception 처리를 할때에는 가장 큰 Exception 으로 처리 해도 되지만
+명확한 Excetion 별로 처리 하는것을 권장함
+-> 이때 어떠한 Excetion 처리를 해야 할지 알기 위해서는 API Ccument 사이트에서
+해당 클래스에 대한 생성자나 메소드를 검색하면, 그 메소드가 어떠한
+Exception 을 발생 시킬 가능성이 있는지를 확인 할수있음
+
+
+@ 예외에 철기
+-> 예외처리의 방법은 2가지가 있음
+1. try ~catch
+	-> 해당 코드를 사용하는 곳에서 직접 처리할때 사용
+
+2. throuws 
+	-> 해당 코드 부분에서 처리하지 않고 다음 사용자에게 예외를 던짐
+	 throws 는 던진다 라는 의미를 가지고 있음.
+
+
+@ 사용자 정의 예외
+-> 표준 예외 클래스로도 많은 예외 상황을 표현할 수 있으나 그렇지 않은 경우도 있음
+	( 예를 들어 숫자 1을 입력하면 예외를 발생시키고 싶으나 그러한 표준 예외는 없음)
+
+-> 사용자만의 예외를 만들수있음
+-> 단, 예외를 만들기 전에는 checked Exception 으로 만들것인지 아니면
+unchecked Exception 으로 만들 것인지를 선택하야함
+
+* 사용자 예외를 만들기 위해서는 예외 클래스를 선택하여 상속 받아야함
+Excetpion 을 상속 받게 되면 Checked Exception 이 되고,
+RuntimeExcetpion을 상속 받게 되면 unchecked Exception 이 됨.

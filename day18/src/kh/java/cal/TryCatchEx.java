@@ -18,9 +18,7 @@ public class TryCatchEx {
 			System.out.println("에러메세지 : " + e.getMessage());
 			e.printStackTrace();
 		}
-		System.out.println(" 수고하셨습니다.");	
-		
-		
+		System.out.println(" 수고하셨습니다.");			
 	}
 	
 	public void menuSelect()
