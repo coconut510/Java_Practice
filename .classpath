@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="day04/src"/>
+	<classpathentry kind="src" path="day05/src"/>
+	<classpathentry kind="src" path="day06/src"/>
+	<classpathentry kind="src" path="day07/src"/>
+	<classpathentry kind="src" path="day08/src"/>
+	<classpathentry kind="src" path="day09/src"/>
+	<classpathentry kind="src" path="day10/src"/>
+	<classpathentry kind="src" path="day11/src"/>
+	<classpathentry kind="src" path="day12/src"/>
+	<classpathentry kind="src" path="day13/src"/>
+	<classpathentry kind="src" path="day14_1/src"/>
+	<classpathentry kind="src" path="day14_2/src"/>
+	<classpathentry kind="src" path="day14_3/src"/>
+	<classpathentry kind="src" path="day14/src"/>
+	<classpathentry kind="src" path="day15_0/src"/>
+	<classpathentry kind="src" path="day15_1/src"/>
+	<classpathentry kind="src" path="day16_StdMgr/src"/>
+	<classpathentry kind="src" path="day16_StdMgr2/src"/>
+	<classpathentry kind="src" path="day17_1API/src"/>
+	<classpathentry kind="src" path="day17/src"/>
+	<classpathentry kind="src" path="day18/src"/>
+	<classpathentry kind="src" path="JavaTest1_KYH/src"/>
+	<classpathentry kind="src" path="MiniProject/src"/>
+	<classpathentry kind="output" path="day03/bin"/>
+</classpath>
