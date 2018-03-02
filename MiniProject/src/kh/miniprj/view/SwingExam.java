@@ -20,7 +20,6 @@ public class SwingExam extends JFrame {
 	private ImageIcon imageIcon = new ImageIcon();	
 	private JButton b= new JButton("gif");
 	private JPanel p = new JPanel();
-	private Graphics g = getGraphics();
 	public void viewPopup() throws IOException
 	{
 		JFrame f=new JFrame();//creating instance of JFrame  
@@ -30,7 +29,6 @@ public class SwingExam extends JFrame {
 		URL url = new URL("https://colinbendell.cloudinary.com/image/upload/c_crop,f_auto,g_auto,h_350,w_400/v1512090971/Wizard-Clap-by-Markus-Magnusson.gif");					
 		BufferedImage image  = ImageIO.read(url);	
 		imageIcon = new ImageIcon(image);
-		Image iTemp = ImageIO.read(url);
 		b= new JButton(imageIcon);//creating instance of JButton  
 
 		b.setBounds(130,100,330, 130);//x axis, y axis, width, height  
