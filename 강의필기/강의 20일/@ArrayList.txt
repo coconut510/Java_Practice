@@ -1,0 +1,3 @@
+@ ArrayList
+-> ArrayList 는 기존 배열과는 사용법이 조금 다음
+	( 배열은 크기가 정해져 있으나  ArrayList 는 크기가 정해져 있지 않음)
