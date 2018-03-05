@@ -7,7 +7,6 @@ import student.vo.Student;
 
 public class StudentController {
 	private ArrayList<Student> s = new ArrayList<Student>();	
-	
 	public ArrayList<Student> selectAll()
 	{
 		Collections.sort(s);
