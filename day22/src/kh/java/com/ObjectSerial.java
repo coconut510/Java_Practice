@@ -6,14 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ObjectSerial {
+	ArrayList<Student> sList = new ArrayList<Student>();
 	private Scanner sc = new Scanner(System.in);
-	private Student s ;
 	public void start()
 	{
 		while(true) {
+			System.out.println("\n----------");
 			System.out.println("1. 학생정보 입력 ");
 			System.out.println("2. 학생정보 출력 ");
 			System.out.println("3. 저장 ");
@@ -33,19 +35,33 @@ public class ObjectSerial {
 	
 	public void input()
 	{
-		s = new Student("홍길동", 20,"경기도");
+		Student s = new Student();
+		System.out.println("=====학생 정보 입력=====");
+		System.out.print("학생 이름 입력 : ");
+		s.setName(sc.next());
+		
+		System.out.print("학생 나이 입력 : ");
+		s.setAge(sc.nextInt());
+		
+		sc.nextLine();
+		System.out.print("학생 주소 입력 : ");
+		s.setAddr(sc.nextLine());
+		
+		sList.add(s);
 	}
 	public void output()
 	{
-		System.out.println("이름 : " + s.getName());
-		System.out.println("나이 : " + s.getAge());
-		System.out.println("주소 : " + s.getAddr());
+		for(int i = 0; i<sList.size();i++) 
+		{
+			System.out.println(sList.get(i));
+			System.out.println("----------");
+		}
 	}
 	public void save()
 	{
-		try(ObjectOutputStream oos =	new ObjectOutputStream(new FileOutputStream("object.txt")))
+		try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("object.txt")))
 		{
-			oos.writeObject(s);
+			oos.writeObject(sList);
 			System.out.println("저장완료.");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -53,11 +69,12 @@ public class ObjectSerial {
 			e.printStackTrace();
 		}
 	}
+	
 	public void load()
 	{
 		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("object.txt")))
 		{
-			s = (Student) ois.readObject();
+			sList = (ArrayList) ois.readObject();
 			System.out.println("로드 완료");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

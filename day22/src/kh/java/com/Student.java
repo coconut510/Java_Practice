@@ -19,7 +19,7 @@ public class Student implements Serializable {
 	@Override
 	public String toString()
 	{
-		return this.name + "/" + this.age + "/" + this.addr;
+		return "이름 : " + this.name + "\n나이 : " + this.age + "\n주소 : " + this.addr;
 	}
 	public String getName() {
 		return name;
