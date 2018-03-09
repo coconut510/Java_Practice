@@ -8,7 +8,7 @@ public class ClientChat extends Thread {
 	DataInputStream dis = null;
 	Socket socket = null;	
 	DataOutputStream dos = null;
-	
+	public static int num = 0;
 	@Override
 	public void run()
 	{		
@@ -28,9 +28,9 @@ public class ClientChat extends Thread {
 			System.out.println(e.getMessage());
 		}
 	}
-	
 	public ClientChat()
 	{
+		System.out.println(num++);
 		Scanner sc = new Scanner(System.in);	
 	
 		System.out.println("채팅프로그램 [클라]가 입장했습니다.");
