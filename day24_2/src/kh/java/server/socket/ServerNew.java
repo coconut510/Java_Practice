@@ -17,7 +17,7 @@ public class ServerNew extends Thread {
 	private DataInputStream dis = null;
 	private DataOutputStream dos = null;
 	private Socket clientSocket = null;
-	private ServerSocket serverSocket= null;
+	private ServerSocket serverSocket = null;
 	
 	public ServerNew()
 	{

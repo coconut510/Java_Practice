@@ -49,7 +49,6 @@ public class ServerChat extends Thread {
 			dos = new DataOutputStream(clientSocket.getOutputStream());							
 			
 			
-			
 			this.start();
 			
 			while(true) 

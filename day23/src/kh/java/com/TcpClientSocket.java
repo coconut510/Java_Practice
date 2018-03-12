@@ -42,7 +42,7 @@ public class TcpClientSocket {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 clientSocket.close();
             } catch (IOException e) {
