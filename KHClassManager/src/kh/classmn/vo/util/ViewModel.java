@@ -40,4 +40,5 @@ public class ViewModel {
 		return b;
 	}
 	
+	
 }
