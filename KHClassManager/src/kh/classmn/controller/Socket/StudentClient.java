@@ -1,10 +1,10 @@
-package kh.java.client.socket;
+package kh.classmn.controller.Socket;
 
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class ClientChat extends Thread {
+public class StudentClient extends Thread {
 	DataInputStream dis = null;
 	Socket socket = null;	
 	DataOutputStream dos = null;
@@ -28,7 +28,7 @@ public class ClientChat extends Thread {
 			System.out.println(e.getMessage());
 		}
 	}
-	public ClientChat()
+	public StudentClient()
 	{
 		System.out.println(num++);
 		Scanner sc = new Scanner(System.in);	
@@ -42,7 +42,6 @@ public class ClientChat extends Thread {
 			this.start();
 			while(true)
 			{
-				System.out.print("[³ª  (Å¬¶ó)] : ");
 				String message = sc.nextLine();
 				if(message.equals("exit"))
 				{

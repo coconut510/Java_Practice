@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
-import kh.classmn.vo.student.Member;
+import kh.classmn.vo.student.Student;
 
 
 //----- ¡ÿ ªÛ º∫ πŒ ----- //
@@ -20,7 +20,7 @@ public class JoinGameMgr extends Thread
 	JoinGameMgr jgm = null;
 	String getMessage; 
 	static ClientSender sender; 
-	Member m = new Member();
+	Student m = new Student();
 	//	String ipAddr;
 	//	int port;
 	String name;

@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import kh.classmn.view.LoginView;
 import kh.classmn.vo.data.DataGroup;
+import kh.classmn.vo.student.Student;
 
 public class LoginController {
 	private LoginView loginView;
@@ -23,8 +24,8 @@ public class LoginController {
 
 	public void join(boolean idChkFlag, String getId, String getPw) 
 	{
-//		m = new Member(getId, getPw);
-//		dataGroup.setMyMember(m);
+		Student user = new Student(getId, getPw);
+		dataGroup.setMyMember(user);
 		if (idChkFlag == false) {
 			JOptionPane.showMessageDialog(null, "아이디 중복 체크를 해주세요!", "회원가입", JOptionPane.ERROR_MESSAGE);
 		} 
@@ -32,7 +33,7 @@ public class LoginController {
 		{
 			if(!idValidCheck(getId)) 
 			{
-//				dataGroup.setMemberDataList(getId,m);
+				dataGroup.setMemberDataList(getId,user);
 //				dataGroup.saveData();
 				loginView.signUpToLogin();
 			}

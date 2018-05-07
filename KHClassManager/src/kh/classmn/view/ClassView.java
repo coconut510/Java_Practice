@@ -32,7 +32,7 @@ public class ClassView {
 		for(int i = 0; i<30;i++)
 		{
 			JButton button = new JButton();
-			button.setSize(200,100);
+//			button.setSize(400,200);
 			button.setBackground(rg.getSkyBlue());
 			studentList.add(button);
 		}
@@ -53,8 +53,8 @@ public class ClassView {
         	{
         		  gbc.gridx=j;
         		  gbc.gridy=i;
-        		  gbc.ipadx=65;
-        		  gbc.ipady =65;
+        		  gbc.ipadx=96;//65;
+        		  gbc.ipady =96;//65;
         		  gbc.weightx=0.1;
         		  gbc.weighty=0.1;
         		  classPanel.add(studentList.get(i*6 + j),gbc);
