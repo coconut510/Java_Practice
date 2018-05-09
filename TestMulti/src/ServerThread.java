@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -17,48 +19,31 @@ import java.util.Scanner;
  *
  */
 public class ServerThread extends Thread{
+	static public HashMap<String, Socket> socketList = new HashMap<String, Socket>();
 	//멤버변수로 선언
 	private Socket socket;
 	private BufferedReader br = null;
-	private Scanner sc = new Scanner(System.in);
 	private PrintWriter pw = null;
+	private Scanner sc = new Scanner(System.in);
 	private String userIP;
-	
+
 	private DataInputStream dis = null;
 	private DataOutputStream dos = null;
 	private SocketMap sm = new SocketMap();
-	
+
 	public ServerThread(Socket s){
 		this.socket = s;
 		sm.socketAdd(s);
 		sm.start();
-		try {
-			dis = new DataInputStream(socket.getInputStream());
-			dos = new DataOutputStream(socket.getOutputStream());
-//			while(true) 
-//			{
-//				System.out.print("[나   (서버)] : ");
-//				String sendMsg = sc.nextLine();
-//				
-//				if(sendMsg.equals("exit"))
-//				{
-//					System.out.println("서버에서 종료했습니다.");	
-//					dos.writeUTF(sendMsg);
-//					break;
-//				}
-//				else dos.writeUTF(sendMsg);					
-//			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
-		userIP = socket.getInetAddress().toString();
+//		userIP = socket.getInetAddress().toString();
 	}
-	
+
+
+
 	@Override
 	public void run(){
 		try{
-			service();
-			
+			service();		
 		}catch(IOException e){
 			System.out.println("**"+userIP+"님 접속 종료.");
 		}finally{
@@ -67,26 +52,22 @@ public class ServerThread extends Thread{
 	}
 
 	private void service()throws IOException{
-		br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		pw = new PrintWriter(socket.getOutputStream(), true);
 		String str = null;
 		while(true){
-			str = br.readLine();
+			dis = new DataInputStream(socket.getInputStream());
+			str = dis.readUTF();
 			if(str == null){
 				System.out.println(userIP+"님이 연결을 종료했습니다.");
 				break;
 			}
-			System.out.println("서버 " + userIP + "님: "+str);
-			// 서버 공지
-
-			
-			pw.println(str);
+			System.out.println();
+			System.out.println("서버 " + socket.getLocalSocketAddress() + "님: "+str);
 		}
 	}
 	public void closeAll(){
 		try {
-			if (pw != null) pw.close();
-			if (br != null)br.close();			
+			if (dis != null) dis.close();
+			if (dos != null)dos.close();			
 			if (socket != null) socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
